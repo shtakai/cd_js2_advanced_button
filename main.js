@@ -1,23 +1,41 @@
 //
+Element.prototype.addClass = function(className){
+    var classArray = this.className.split(' ');
+    if(classArray.indexOf(className) < 0){
+        classArray.push(className);
+        this.className = classArray.join(' ');
+    }
+    return this;
+}
+Element.prototype.removeClass = function(className){
+    var classArray = this.className.split(' ');
+    var index = classArray.indexOf(className);
+    if(index >= 0){
+        classArray.splice(index, 1);
+        this.className = classArray.join(' ');
+    }
+    return this;
+}
 console.log('test');
-$('button').on('click',function(e){
+var button = document.querySelector('button');
+button.addEventListener('click',function(e){
   console.log('event',e);
-  if($('button').hasClass('blue')){
-    $('button').removeClass('blue');
-    $('button').addClass('red');
+  if(button.classList.contains('blue')){
+    button.removeClass('blue');
+    button.addClass('red');
 
   }else{
-    $('button').removeClass('red');
-    $('button').addClass('blue');
+    button.removeClass('red');
+    button.addClass('blue');
   }
 });
 
-$('button').on('mouseenter', function(e){
+button.addEventListener('mouseenter', function(e){
    console.log(e);
-   $('button').addClass('green');
+   button.addClass('green');
 });
 
-$('button').on('mouseleave', function(e){
+button.addEventListener('mouseleave', function(e){
    console.log(e);
-   $('button').removeClass('green');
+   button.removeClass('green');
 });
