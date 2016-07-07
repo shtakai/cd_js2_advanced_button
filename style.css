@@ -1,0 +1,15 @@
+button {
+  width: 200px;
+  height: 50px;
+  font-size: 1.5em;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+
+.green {
+   background-color: green;
+}
